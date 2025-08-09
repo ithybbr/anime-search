@@ -1,0 +1,420 @@
+.anime-form-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.anime-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.anime-form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.anime-form-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 8px 0;
+}
+
+.anime-form-subtitle {
+    color: #6b7280;
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.anime-form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.anime-form-search-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+    border-radius: 16px;
+    padding: 18px;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+.anime-form-section {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 18px;
+    border: 1px solid #e5e7eb;
+}
+
+.anime-form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.anime-form-section-indicator {
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 2px;
+}
+
+.anime-form-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0;
+}
+
+/* Search row layout for search input with type and status selects */
+.anime-form-search-row {
+    display: grid;
+    grid-template-columns: 2fr auto auto;
+    gap: 16px;
+    align-items: end;
+}
+
+.anime-form-search-select {
+    min-width: 140px;
+    padding: 16px 12px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #374151;
+    box-sizing: border-box;
+    font-family: inherit;
+    cursor: pointer;
+    height: 54px; /* Match the search input height */
+}
+
+.anime-form-search-select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+}
+.anime-form-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    align-items: start;
+}
+
+/* Special styling for the SFW checkbox to make it fit better in the grid */
+.anime-form-sfw-field {
+    grid-column: span 1;
+    align-self: end;
+}
+
+.anime-form-sfw-field .anime-form-checkbox-container {
+    margin-top: 24px; /* Align with other inputs */
+    height: fit-content;
+    padding: 12px 16px;
+}
+
+.anime-form-grid-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.anime-form-grid-row:last-child {
+    margin-bottom: 0;
+}
+
+.anime-form-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.anime-form-label {
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.875rem;
+    margin-bottom: 4px;
+}
+
+.anime-form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #374151;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.anime-form-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    transform: translateY(-1px);
+}
+
+.anime-form-input::placeholder {
+    color: #9ca3af;
+}
+
+.anime-form-search-input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 12px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #374151;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.anime-form-search-input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    transform: translateY(-2px);
+}
+
+.anime-form-search-input::placeholder {
+    color: #9ca3af;
+}
+
+.anime-form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: white;
+    color: #374151;
+    box-sizing: border-box;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.anime-form-select:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    transform: translateY(-1px);
+}
+
+.anime-form-checkbox-container {
+    background: #eff6ff;
+    border: 2px solid #dbeafe;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.anime-form-checkbox-container:hover {
+    background: #dbeafe;
+}
+
+.anime-form-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.anime-form-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+.anime-form-checkbox-text {
+    font-weight: 500;
+    color: #1e40af;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.025em;
+}
+
+.anime-form-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.anime-form-reset-button {
+    padding: 14px 28px;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    font-family: inherit;
+}
+
+.anime-form-reset-button:hover {
+    background-color: #e5e7eb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.anime-form-reset-button:active {
+    transform: translateY(0);
+}
+
+.anime-form-submit-button {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    font-family: inherit;
+}
+
+.anime-form-submit-button:hover {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+.anime-form-submit-button:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design for compact layout */
+@media (min-width: 1024px) {
+    .anime-form-compact-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .anime-form-sfw-field {
+        grid-column: span 1;
+    }
+    
+    .anime-form-grid-row {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .anime-form-compact-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .anime-form-sfw-field {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .anime-form-compact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .anime-form-sfw-field {
+        grid-column: span 2;
+        margin-top: 0;
+    }
+    
+    .anime-form-sfw-field .anime-form-checkbox-container {
+        margin-top: 0;
+    }
+}
+
+/* Responsive adjustments for search row */
+@media (max-width: 768px) {
+    .anime-form-search-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .anime-form-search-select {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .anime-form-card {
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .anime-form-title {
+        font-size: 2rem;
+    }
+
+    .anime-form-grid-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .anime-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .anime-form-reset-button,
+    .anime-form-submit-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .anime-form-container {
+        padding: 10px;
+    }
+
+    .anime-form-card {
+        padding: 20px;
+    }
+
+    .anime-form-title {
+        font-size: 1.75rem;
+    }
+
+    .anime-form-subtitle {
+        font-size: 1rem;
+    }
+    
+    .anime-form-compact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .anime-form-sfw-field {
+        grid-column: span 1;
+    }
+}
