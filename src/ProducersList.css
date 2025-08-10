@@ -1,0 +1,344 @@
+/* ProducersList.css */
+
+.producers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.producers-title {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.loading, .error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.error {
+  background: rgba(220, 38, 127, 0.2);
+  border-color: rgba(220, 38, 127, 0.3);
+}
+
+.producers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.producer-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.producer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.producer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+  border-color: rgba(102, 126, 234, 0.5);
+}
+
+.producer-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.producer-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.producer-image-placeholder {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.producer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.producer-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.producer-type {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.producer-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.producer-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.producer-detail:last-child {
+  margin-bottom: 0;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.detail-value {
+  color: #2d3748;
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.favorites-count {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.established-date {
+  color: #667eea;
+  font-weight: 500;
+}
+
+.producer-about {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4a5568;
+  max-height: 4.5em;
+  overflow: hidden;
+  position: relative;
+}
+
+.producer-about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1.5em;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.95));
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .producers-container {
+    padding: 1rem;
+  }
+  
+  .producers-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .producers-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .producer-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .producer-image,
+  .producer-image-placeholder {
+    align-self: center;
+  }
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth entrance animation */
+.producer-card {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pagination Styles */
+.pagination-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagination-info {
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(.disabled) {
+  background: rgba(102, 126, 234, 0.95);
+  color: white;
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.pagination-btn.disabled {
+  background: rgba(255, 255, 255, 0.5);
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-btn.disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-ellipsis {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  padding: 0.75rem 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Mobile pagination adjustments */
+@media (max-width: 768px) {
+  .pagination-controls {
+    gap: 0.25rem;
+  }
+  
+  .pagination-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 40px;
+  }
+  
+  .pagination-container {
+    margin-top: 2rem;
+  }
+}

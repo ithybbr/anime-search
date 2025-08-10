@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApiGetGenres from './ApiGetGenres'; // Import your API function
-import './GenresList.css'; // Import your styles if needed
+import './GenresList.css'; // Import your styles
+
 export default function GenresList(){
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -20,14 +21,32 @@ export default function GenresList(){
         fetchGenres();
     }, []);
 
-    if (loading) return <div>Loading genres...</div>;
-    if (error) return <div>{error}</div>;
+    if (loading) 
+        return (
+            <div className="genres-container">
+                <div className="loading">Loading genres...</div>
+            </div>
+        );
+    if (error) 
+        return (
+            <div className="genres-container">
+                <div className="error">{error}</div>
+            </div>
+        );
 
     return (
-        <ul>
-            {genres.map((genre) => (
-                <li key={genre.mal_id}>{genre.name}</li>
-            ))}
-        </ul>
+        <div className="genres-container">
+            <h1 className="genres-title">
+                <a href='/' className="pagination-btn" style={{display: 'table'}}>Back to Search</a>
+                Anime Genres
+            </h1>
+            <ul className="genres-list">
+                {genres.map((genre) => (
+                    <li key={genre.mal_id} className="genre-item">
+                        {genre.name}
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 }

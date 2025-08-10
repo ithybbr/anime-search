@@ -1,0 +1,190 @@
+/* GenresList.css */
+
+/* Container styling */
+#root {
+  background: linear-gradient(135deg, #2f307a 0%, #3b1a88 100%);
+}
+.genres-container {
+  max-width: 800px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Loading and error states */
+.loading, .error {
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.error {
+  background: rgba(220, 38, 127, 0.2);
+  border-color: rgba(220, 38, 127, 0.3);
+}
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.genres-title {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Genres list styling */
+.genres-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Individual genre item */
+.genre-item {
+    background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(240, 147, 251, 0.3);
+}
+
+/* Hover effects */
+.genre-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.genre-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.genre-item:hover::before {
+  left: 100%;
+}
+
+/* Active/focus states */
+.genre-item:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.genre-item:focus {
+  outline: none;
+  box-shadow: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.pagination-btn {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover:not(.disabled) {
+  background: rgba(102, 126, 234, 0.95);
+  color: white;
+  border-color: rgba(102, 126, 234, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.pagination-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.pagination-btn.disabled {
+  background: rgba(255, 255, 255, 0.5);
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pagination-btn.disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .genres-container {
+    padding: 1rem;
+  }
+  
+  .genres-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .genre-item {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .genres-list {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .genre-item {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
