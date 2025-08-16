@@ -179,6 +179,11 @@ return (
                         <a className="rs-btn" href={a.trailer.url} target="_blank" rel="noreferrer">▶ Trailer</a>
                     ) : null}
                     <a className="rs-btn rs-btn-ghost" href={a.url} target="_blank" rel="noreferrer">View on MAL</a>
+                    <div className="rs-btn-group">
+                        <a className="rs-btn rs-btn-ghost" href= {"https://nyaa.digital/?f=0&c=0_0&" + "q=" + title.replace(/ /g, "_") + "&s=size&o=desc"} target="_blank" rel="noreferrer">View on nyaa.digital</a>
+                        <a className="rs-btn rs-btn-ghost" href= {"https://nyaa.land/?f=0&c=0_0&" + "q=" + title.replace(/ /g, "_") + "&s=size&o=desc"} target="_blank" rel="noreferrer">View on nyaa.land</a>
+                        <a className="rs-btn rs-btn-ghost" href= {"https://nyaa.si/?f=0&c=0_0&" + "q=" + title.replace(/ /g, "_") + "&s=size&o=desc"} target="_blank" rel="noreferrer">View on nyaa.si</a>
+                    </div>
                     </div>
                 </div>
                 </article>

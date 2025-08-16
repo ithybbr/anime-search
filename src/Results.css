@@ -110,7 +110,13 @@ body {
   border:1px solid #e5e7eb;
   color:#111827;
 }
-
+.rs-btn-group{
+  display:flex;
+  gap:3px;
+  flex-wrap:wrap;
+  display: inline-grid;
+  margin: auto 0 auto auto;
+}
 .rs-footer {
   display:flex;
   justify-content:space-between;
