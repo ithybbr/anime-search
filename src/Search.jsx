@@ -296,7 +296,32 @@ export default function AnimeSearchForm() {
         setStartDate('');
         setEndDate('');
     };
-
+    const loadLastQuery = () => {
+        try {
+            const lastQuery = JSON.parse(sessionStorage.getItem('lastApiQuery'));
+            if (lastQuery) {
+                setQ(lastQuery.q || '');
+                setType(lastQuery.type || '');
+                setMin(lastQuery.minRating || '');
+                setMax(lastQuery.maxRating || '');
+                setStatus(lastQuery.status || '');
+                setRating(lastQuery.rating || '');
+                setSfw(lastQuery.sfw || false);
+                setGenres(lastQuery.genres || []);
+                setGenresExclude(lastQuery.genresExclude || []);
+                setOrderBy(lastQuery.orderBy || '');
+                setSort(lastQuery.sort || 'desc');
+                setProducers(lastQuery.producers || []);
+                setStartDate(lastQuery.start_date || '');
+                setEndDate(lastQuery.end_date || '');
+            }
+        } catch (err) {
+            console.error('Failed to load last query from sessionStorage:', err);
+        }
+    };
+    React.useEffect(() => {
+        loadLastQuery();
+    }, []);
     return (
         <div className="anime-form-container">
             <div className="anime-form-card">
